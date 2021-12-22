@@ -98,8 +98,7 @@ function clearElement(element) {
 }
 
 function createTeamTable(team) {
-    let table = document.createElement('table');
-    table.setAttribute('class', 'table table-dark table-striped');
+    let table = createElements('table', ['class', 'table table-dark table-striped']);
     let row = table.insertRow(0);
     let nameColumn = document.createElement('th');
     let positionColumn = document.createElement('th');
@@ -127,6 +126,14 @@ function createTeamTable(team) {
     formRow.appendChild(positionTh);
     formRow.appendChild(createTh);
     return table;
+}
+
+function createElements(elementType, attributes) {
+    let e = document.createElement(elementType);
+    if ( attributes != '') {
+        e.setAttribute(attributes[0], attributes[1]);
+    }
+    return e;
 }
 
 function createNewMemberButton(team) {
